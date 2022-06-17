@@ -1,8 +1,14 @@
+import Header from './components/Header'
+import Form from './components/Form'
+import PetsList from './components/PetsList'
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Header />
+      <Form />
+      <PetsList />
+    </>
   )
 }
 
