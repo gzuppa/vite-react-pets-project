@@ -1,7 +1,13 @@
+import Pets from './Pets'
+
 const PetsList = () => {
   return (
-    <div className="1/2 lg:w-3/5">
-      <h2> Pets List</h2>
+    <div className="md:1/2 md:h-screen lg:w-3/5 h-screen overflow-y-scroll">
+      <h2 className="font-black text-3xl text-center"> Pets List</h2>
+      <p className="text-lg mt-5 text-center mb-10">Admin your 
+        <span className="text-indigo-600 font-bold"> pets and appointments</span>
+      </p>
+      <Pets/>
     </div>
   )
 }
