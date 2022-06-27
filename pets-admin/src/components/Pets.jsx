@@ -1,6 +1,6 @@
 const Pets = () => {
   return (
-    <div className="m-3 bg-white shadow-md px-5 py-10 rounded-xl">
+    <div className="mx-5 bg-white shadow-md px-5 py-10 rounded-xl">
         <p className="font-bold uppercase text-gray-700 mb-3"> Name: {""}
             <span className="font-normal normal-case">
             Michi
