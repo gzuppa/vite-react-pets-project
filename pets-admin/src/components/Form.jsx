@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Form = () => {
+const Form = ( {pets, setPets} ) => {
   const [ name, setName ] = useState('');
   const [ alfa, setAlfa ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -10,10 +10,28 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if([ name, alfa, email, date, symptoms ].includes("")) {
       setError(true)
       return;
-    } setError(false)
+    } 
+      setError(false)
+
+      const petObject = {
+        name,
+        alfa,
+        email,
+        date,
+        symptoms
+      }
+
+      setPets([...pets, petObject])
+
+      setName("")
+      setAlfa("")
+      setEmail("")
+      setDate("")
+      setSymptoms("")
   }
 
   return (
