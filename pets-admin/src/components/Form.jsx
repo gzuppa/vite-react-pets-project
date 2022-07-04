@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Error from './Error'
 
 const Form = ( {pets, setPets} ) => {
   const [ name, setName ] = useState('');
@@ -7,6 +8,13 @@ const Form = ( {pets, setPets} ) => {
   const [ date, setDate ] = useState('');
   const [ symptoms, setSymptoms ] = useState('');
   const [ error, setError ] = useState(false);
+
+  const generateId = () => {
+    const random = Math.random().toString(36).substring(2);
+    const date = Date.now().toString(36);
+
+    return random + date;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +30,8 @@ const Form = ( {pets, setPets} ) => {
         alfa,
         email,
         date,
-        symptoms
+        symptoms,
+        id: generateId()
       }
 
       setPets([...pets, petObject])
@@ -44,9 +53,7 @@ const Form = ( {pets, setPets} ) => {
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
         {error && (
-          <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded">
-            <p>Please fill the form</p>
-          </div>
+          <Error><p>Please fill the form</p></Error>
         )}
         <div className="mb-5">
           <label htmlFor="petName" className="block text-gray-700 uppercase font-bold">
@@ -98,7 +105,7 @@ const Form = ( {pets, setPets} ) => {
         </div>
         <div className="mb-5">
           <label htmlFor="symptoms" className="block text-gray-700 uppercase font-bold">
-            Date
+            Symptoms
           </label>
           <textarea 
             id="symptoms" 

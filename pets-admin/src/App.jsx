@@ -15,7 +15,9 @@ function App() {
           pets={pets}
           setPets={setPets}
         />
-        <PetsList />
+        <PetsList 
+          pets={pets}
+        />
       </div>
     </div>
   )
